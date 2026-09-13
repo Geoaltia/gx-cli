@@ -1,6 +1,6 @@
 {
   "name": "@geoaltia/gx-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "gx: pásale un polígono o área de interés y descubre qué datos Sentinel-1/Sentinel-2 existen sobre esa zona en el catálogo STAC de Copernicus.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -18,6 +18,16 @@
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
+      }
+    },
+    "./browser": {
+      "import": {
+        "types": "./dist/browser.d.mts",
+        "default": "./dist/browser.mjs"
+      },
+      "require": {
+        "types": "./dist/browser.d.cts",
+        "default": "./dist/browser.cjs"
       }
     },
     "./package.json": "./package.json"
@@ -57,7 +67,8 @@
     "geojson",
     "kml",
     "shapefile",
-    "aoi"
+    "aoi",
+    "browser"
   ],
   "author": "Geoaltia",
   "license": "MIT",

@@ -28,6 +28,7 @@ export const SCENE_FIELDS = [
   "properties.proj:code",
   "properties.proj:epsg",
   "properties._private.product_size",
+  "assets.thumbnail.href",
 ];
 
 const str = (value: unknown): string | undefined =>
@@ -104,6 +105,7 @@ export function normalizeItem(item: StacItem, target?: CoverageTarget): SceneSum
     crs,
     aoiCoverage: coverage,
     productBytes: num(privateProps["product_size"]),
+    thumbnail: str(item.assets?.["thumbnail"]?.href),
     bbox,
     footprint,
   };

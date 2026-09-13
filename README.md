@@ -354,11 +354,43 @@ console.log(report.aoi.metrics.areaM2, report.totals.scenes);
 await writeFile("informe.geojson", toGeoJson(report));
 ```
 
-Otras exportaciones útiles: `loadAoi`, `computeAoiMetrics`, `resolveCrs`,
+Otras exportaciones útiles: `loadAoi`, `parseAoi`, `discoverAoi`, `computeAoiMetrics`, `resolveCrs`,
 `searchStac`, `buildSearchBody`, `normalizeItem`, `summarizeCollection`,
 `toJson`, `COLLECTIONS`, `COPERNICUS_CDSE` y todos los tipos (`DiscoveryReport`,
 `CollectionSummary`, `SceneSummary`, `AoiMetrics`…). El paquete se publica en
 ESM y CJS con tipos.
+
+### Uso en el navegador
+
+`@geoaltia/gx-cli/browser` expone la misma API sin dependencias de Node
+(`node:fs`, `node:path`, `process`, `Buffer`), lista para Vite, Next.js
+(`output: "export"`) o cualquier bundler. En lugar de `loadAoi` y `discoverArea`,
+que leen del disco, se usan `parseAoi` (acepta bytes o texto) y `discoverAoi`:
+
+```ts
+import { computeAoiMetrics, discoverAoi, parseAoi } from "@geoaltia/gx-cli/browser";
+
+// Un <input type="file" multiple>: un archivo, o un .shp con sus .dbf/.prj/.cpg
+const files = await Promise.all(
+  [...input.files].map(async (file) => ({ name: file.name, data: await file.arrayBuffer() })),
+);
+const aoi = await parseAoi({ files });
+// o: parseAoi({ bbox: "-3.8,40.35,-3.6,40.5" }), parseAoi({ wkt, crs: "EPSG:25830" }),
+//    parseAoi({ text: geojsonOrKmlOrWkt })
+
+const metrics = computeAoiMetrics(aoi);
+const report = await discoverAoi(aoi, {
+  collections: ["s2-l2a", "s1-grd"],
+  from: "2026-06-01",
+  to: "2026-08-31",
+  maxItems: 500,
+  timeoutMs: 60_000,
+});
+```
+
+El catálogo STAC de Copernicus admite CORS, así que la búsqueda funciona desde
+el navegador sin proxy. Cada escena incluye `thumbnail` (la URL del quicklook)
+cuando el catálogo la publica.
 
 ---
 

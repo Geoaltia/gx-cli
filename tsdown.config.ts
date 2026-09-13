@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 const pkg = require("./package.json") as { version: string };
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/cli.ts"],
+  entry: ["src/index.ts", "src/browser.ts", "src/cli.ts"],
   format: ["esm", "cjs"],
   dts: true,
   clean: true,

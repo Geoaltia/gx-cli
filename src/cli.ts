@@ -6,7 +6,8 @@ import { Command, InvalidArgumentError } from "commander";
 
 import { loadAoi, type LoadAoiInput } from "@/core/aoi/load";
 import { computeAoiMetrics } from "@/core/aoi/metrics";
-import { discoverArea, validateSearchOptions } from "@/core/discover";
+import { validateSearchOptions } from "@/core/discover";
+import { discoverArea } from "@/core/discover-area";
 import {
   aoiToGeoJson,
   aoiToJson,

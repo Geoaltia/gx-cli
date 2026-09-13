@@ -1,6 +1,5 @@
 import { computeAoiMetrics } from "@/core/aoi/metrics";
 import { bboxToPolygon } from "@/core/aoi/bbox";
-import { loadAoi, type LoadAoiInput } from "@/core/aoi/load";
 import {
   fetchCollection,
   searchStac,
@@ -69,7 +68,7 @@ export function buildSearchBody(
     intersects: geometry,
     datetime: `${options.from}T00:00:00Z/${options.to}T23:59:59Z`,
     sortby: [{ field: "properties.datetime", direction: "desc" }],
-    fields: { include: SCENE_FIELDS, exclude: ["assets", "links"] },
+    fields: { include: SCENE_FIELDS, exclude: ["links"] },
   };
   if (info.cloudFilter && options.maxCloud !== undefined) {
     body.filter = { op: "<=", args: [{ property: "eo:cloud_cover" }, options.maxCloud] };
@@ -128,17 +127,17 @@ async function discoverCollection(
 }
 
 /**
- * Describes an AOI and lists the satellite data available over it. Only
- * catalogue metadata is read: nothing is downloaded or processed.
+ * Lists the satellite data available over an already loaded AOI (see
+ * `parseAoi`). Only catalogue metadata is read: nothing is downloaded or
+ * processed. Runtime-agnostic: works in browsers.
  */
-export async function discoverArea(
-  aoiOrInput: Aoi | LoadAoiInput,
+export async function discoverAoi(
+  aoi: Aoi,
   options: DiscoverOptions,
   hooks: DiscoveryHooks = {},
 ): Promise<DiscoveryReport> {
   validateSearchOptions(options);
   const started = performance.now();
-  const aoi = "geometry" in aoiOrInput ? aoiOrInput : await loadAoi(aoiOrInput);
   const metrics = computeAoiMetrics(aoi);
   const provider = options.provider ?? COPERNICUS_CDSE;
 

@@ -4,7 +4,8 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { loadAoi } from "@/core/aoi/load";
-import { buildSearchBody, discoverArea, validateSearchOptions } from "@/core/discover";
+import { buildSearchBody, validateSearchOptions } from "@/core/discover";
+import { discoverArea } from "@/core/discover-area";
 import { toGeoJson, toJson } from "@/core/export";
 import { searchStac, type StacItem } from "@/core/stac/client";
 import { getCollection } from "@/core/stac/collections";

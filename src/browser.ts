@@ -1,33 +1,27 @@
 /**
- * `@geoaltia/gx-cli` — programmatic API.
+ * `@geoaltia/gx-cli/browser` — the programmatic API without Node built-ins.
  *
- * The CLI (`gx`) is a thin layer on top of these functions, so
- * anything the command line can do is available from code as well.
+ * Same functions as the main entry except the ones that read files or stdin
+ * (`loadAoi`, `discoverArea`). Load the AOI from bytes or text with
+ * `parseAoi` and search with `discoverAoi`:
  *
  * ```ts
- * import { discoverArea, toGeoJson } from "@geoaltia/gx-cli";
+ * import { discoverAoi, parseAoi } from "@geoaltia/gx-cli/browser";
  *
- * const report = await discoverArea(
- *   { file: "parcela.geojson" },
- *   {
- *     collections: ["s2-l2a", "s1-grd"],
- *     from: "2026-06-01",
- *     to: "2026-08-31",
- *     maxCloud: 30,
- *     maxItems: 500,
- *     timeoutMs: 60_000,
- *   },
- * );
- *
- * console.log(report.aoi.metrics.areaM2, report.totals.scenes);
+ * const file = input.files[0];
+ * const aoi = await parseAoi({ files: [{ name: file.name, data: await file.arrayBuffer() }] });
+ * const report = await discoverAoi(aoi, {
+ *   collections: ["s2-l2a", "s1-grd"],
+ *   from: "2026-06-01",
+ *   to: "2026-08-31",
+ *   maxItems: 500,
+ *   timeoutMs: 60_000,
+ * });
  * ```
  */
 
 export { discoverAoi, buildSearchBody, validateSearchOptions } from "@/core/discover";
 export type { DiscoverOptions } from "@/core/discover";
-export { discoverArea } from "@/core/discover-area";
-export { loadAoi } from "@/core/aoi/load";
-export type { LoadAoiInput } from "@/core/aoi/load";
 export { parseAoi, AOI_EXTENSIONS } from "@/core/aoi/parse";
 export type { AoiFileInput, ParseAoiInput } from "@/core/aoi/parse";
 export { computeAoiMetrics } from "@/core/aoi/metrics";
