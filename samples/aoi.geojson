@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Casa de Campo, Madrid" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-3.7722, 40.4262],
+            [-3.7581, 40.4336],
+            [-3.7389, 40.4251],
+            [-3.7356, 40.4105],
+            [-3.7509, 40.4027],
+            [-3.7703, 40.4079],
+            [-3.7722, 40.4262]
+          ]
+        ]
+      }
+    }
+  ]
+}

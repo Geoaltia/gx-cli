@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: write
+
+# Serializes releases, but never cancels one in flight: aborting an
+# `npm publish` halfway can leave the version in an inconsistent state.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: ${{ github.repository_owner == 'geoaltia' }}
+    name: Release Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # No `version:` here on purpose — pinning one would clash with the
+      # "packageManager" field in package.json (ERR_PNPM_BAD_PM_VERSION).
+      - name: Use PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+
+      - name: Update npm for OIDC support
+        run: npm install -g npm@latest
+
+      - name: Install NPM Dependencies
+        run: pnpm install
+
+      - name: Verify before publishing
+        run: |
+          pnpm run lint
+          pnpm run typecheck
+          pnpm run test
+          pnpm run build
+
+      - name: Read package name/version
+        id: pkg
+        run: |
+          NAME="$(node -p 'require("./package.json").name')"
+          VERSION="$(node -p 'require("./package.json").version')"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check if version already exists on npm
+        id: npm
+        run: |
+          if npm view "${{ steps.pkg.outputs.name }}@${{ steps.pkg.outputs.version }}" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to NPM
+        if: steps.npm.outputs.exists != 'true'
+        env:
+          HUSKY: 0
+        run: npm publish --provenance --access public
+
+      - name: Publish skipped (already published)
+        if: steps.npm.outputs.exists == 'true'
+        run: echo "${{ steps.pkg.outputs.name }}@${{ steps.pkg.outputs.version }} already exists on npm; skipping publish."

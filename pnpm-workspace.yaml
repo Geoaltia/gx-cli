@@ -1,0 +1,11 @@
+packages:
+  - .
+  - samples
+
+# Only install package versions that have been on the registry for at least
+# 7 days (10080 minutes). Protects against freshly published, compromised
+# or broken releases.
+minimumReleaseAge: 10080
+
+onlyBuiltDependencies:
+  - esbuild

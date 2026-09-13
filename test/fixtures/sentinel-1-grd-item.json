@@ -1,0 +1,136 @@
+{
+  "id": "S1C_IW_GRDH_1SDV_20260828T181031_20260828T181056_009199_01246B_7504_COG",
+  "collection": "sentinel-1-grd",
+  "bbox": [
+    -5.495309,
+    40.039906,
+    -2.083641,
+    41.945862
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -5.495309,
+          41.541756
+        ],
+        [
+          -5.113382,
+          40.039906
+        ],
+        [
+          -2.083641,
+          40.44516
+        ],
+        [
+          -2.39579,
+          41.945862
+        ],
+        [
+          -5.495309,
+          41.541756
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2026-08-28T18:10:31.532003Z",
+    "platform": "sentinel-1c",
+    "product:type": "IW_GRDH_1S",
+    "processing:level": "L1",
+    "processing:version": "01.00",
+    "sat:relative_orbit": 1,
+    "sat:absolute_orbit": 9199,
+    "sat:orbit_state": "ascending",
+    "sar:instrument_mode": "IW",
+    "sar:polarizations": [
+      "VV",
+      "VH"
+    ],
+    "_private": {
+      "product_size": 1165769058
+    }
+  },
+  "assets": {
+    "vh": {
+      "title": "VH: Vertical transmit, horizontal receive",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ]
+    },
+    "vv": {
+      "title": "VV: Vertical transmit, vertical receive",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ]
+    },
+    "Product": {
+      "title": "Zipped product",
+      "type": "application/zip",
+      "roles": [
+        "data",
+        "metadata",
+        "archive"
+      ]
+    },
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ]
+    },
+    "safe_manifest": {
+      "title": "manifest.safe",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-noise-vh": {
+      "title": "VH noise Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-noise-vv": {
+      "title": "VV noise Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-product-vh": {
+      "title": "VH product Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-product-vv": {
+      "title": "VV product Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-calibration-vh": {
+      "title": "VH calibration Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "schema-calibration-vv": {
+      "title": "VV calibration Schema",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    }
+  }
+}

@@ -1,0 +1,843 @@
+{
+  "id": "S2C_MSIL2A_20260830T105621_N0512_R094_T30TVK_20260830T144012",
+  "collection": "sentinel-2-l2a",
+  "bbox": [
+    -4.183172606603149,
+    39.655752572676114,
+    -2.884556932380293,
+    40.65079881136531
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -4.183172606603149,
+          40.64479480422486
+        ],
+        [
+          -4.166131695553713,
+          39.655752572676114
+        ],
+        [
+          -2.886220085473723,
+          39.66155122739065
+        ],
+        [
+          -2.884556932380293,
+          40.65079881136531
+        ],
+        [
+          -4.183172606603149,
+          40.64479480422486
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2026-08-30T10:56:21.025000Z",
+    "platform": "sentinel-2c",
+    "product:type": "S2MSI2A",
+    "processing:level": "L2",
+    "processing:version": "05.12",
+    "eo:cloud_cover": 0,
+    "eo:snow_cover": 0,
+    "grid:code": "MGRS-30TVK",
+    "sat:relative_orbit": 94,
+    "sat:absolute_orbit": 10360,
+    "sat:orbit_state": "descending",
+    "gsd": 10,
+    "_private": {
+      "product_size": 1248723963
+    }
+  },
+  "assets": {
+    "AOT_10m": {
+      "title": "Aerosol optical thickness (AOT) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "AOT",
+          "description": "Aerosol optical thickness"
+        }
+      ]
+    },
+    "AOT_20m": {
+      "title": "Aerosol optical thickness (AOT) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "AOT",
+          "description": "Aerosol optical thickness"
+        }
+      ]
+    },
+    "AOT_60m": {
+      "title": "Aerosol optical thickness (AOT) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "AOT",
+          "description": "Aerosol optical thickness"
+        }
+      ]
+    },
+    "B01_20m": {
+      "title": "Coastal aerosol (band 1) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:upsampled",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B01",
+          "description": "Coastal aerosol (band 1)",
+          "eo:common_name": "coastal",
+          "eo:center_wavelength": 0.443
+        }
+      ]
+    },
+    "B01_60m": {
+      "title": "Coastal aerosol (band 1) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B01",
+          "description": "Coastal aerosol (band 1)",
+          "eo:common_name": "coastal",
+          "eo:center_wavelength": 0.443
+        }
+      ]
+    },
+    "B02_10m": {
+      "title": "Blue (band 2) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "B02_20m": {
+      "title": "Blue (band 2) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "B02_60m": {
+      "title": "Blue (band 2) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "B03_10m": {
+      "title": "Green (band 3) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        }
+      ]
+    },
+    "B03_20m": {
+      "title": "Green (band 3) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        }
+      ]
+    },
+    "B03_60m": {
+      "title": "Green (band 3) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        }
+      ]
+    },
+    "B04_10m": {
+      "title": "Red (band 4) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        }
+      ]
+    },
+    "B04_20m": {
+      "title": "Red (band 4) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        }
+      ]
+    },
+    "B04_60m": {
+      "title": "Red (band 4) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        }
+      ]
+    },
+    "B05_20m": {
+      "title": "Red edge 1 (band 5) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B05",
+          "description": "Red edge 1 (band 5)",
+          "eo:common_name": "rededge071",
+          "eo:center_wavelength": 0.704
+        }
+      ]
+    },
+    "B05_60m": {
+      "title": "Red edge 1 (band 5) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B05",
+          "description": "Red edge 1 (band 5)",
+          "eo:common_name": "rededge071",
+          "eo:center_wavelength": 0.704
+        }
+      ]
+    },
+    "B06_20m": {
+      "title": "Red edge 2 (band 6) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B06",
+          "description": "Red edge 2 (band 6)",
+          "eo:common_name": "rededge075",
+          "eo:center_wavelength": 0.741
+        }
+      ]
+    },
+    "B06_60m": {
+      "title": "Red edge 2 (band 6) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B06",
+          "description": "Red edge 2 (band 6)",
+          "eo:common_name": "rededge075",
+          "eo:center_wavelength": 0.741
+        }
+      ]
+    },
+    "B07_20m": {
+      "title": "Red edge 3 (band 7) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B07",
+          "description": "Red edge 3 (band 7)",
+          "eo:common_name": "rededge078",
+          "eo:center_wavelength": 0.783
+        }
+      ]
+    },
+    "B07_60m": {
+      "title": "Red edge 3 (band 7) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B07",
+          "description": "Red edge 3 (band 7)",
+          "eo:common_name": "rededge078",
+          "eo:center_wavelength": 0.783
+        }
+      ]
+    },
+    "B08_10m": {
+      "title": "NIR 1 (band 8) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "B08",
+          "description": "NIR 1 (band 8)",
+          "eo:common_name": "nir",
+          "eo:center_wavelength": 0.833
+        }
+      ]
+    },
+    "B09_60m": {
+      "title": "NIR 3 (band 9) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B09",
+          "description": "NIR 3 (band 9)",
+          "eo:common_name": "nir09",
+          "eo:center_wavelength": 0.945
+        }
+      ]
+    },
+    "B11_20m": {
+      "title": "SWIR 1 (band 11) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B11",
+          "description": "SWIR 1 (band 11)",
+          "eo:common_name": "swir16",
+          "eo:center_wavelength": 1.614
+        }
+      ]
+    },
+    "B11_60m": {
+      "title": "SWIR 1 (band 11) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B11",
+          "description": "SWIR 1 (band 11)",
+          "eo:common_name": "swir16",
+          "eo:center_wavelength": 1.614
+        }
+      ]
+    },
+    "B12_20m": {
+      "title": "SWIR 2 (band 12) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B12",
+          "description": "SWIR 2 (band 12)",
+          "eo:common_name": "swir22",
+          "eo:center_wavelength": 2.202
+        }
+      ]
+    },
+    "B12_60m": {
+      "title": "SWIR 2 (band 12) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B12",
+          "description": "SWIR 2 (band 12)",
+          "eo:common_name": "swir22",
+          "eo:center_wavelength": 2.202
+        }
+      ]
+    },
+    "B8A_20m": {
+      "title": "NIR 2 (band 8A) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B8A",
+          "description": "NIR 2 (band 8A)",
+          "eo:common_name": "nir08",
+          "eo:center_wavelength": 0.865
+        }
+      ]
+    },
+    "B8A_60m": {
+      "title": "NIR 2 (band 8A) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "reflectance",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B8A",
+          "description": "NIR 2 (band 8A)",
+          "eo:common_name": "nir08",
+          "eo:center_wavelength": 0.865
+        }
+      ]
+    },
+    "CLD_20m": {
+      "title": "Cloud probability (CLD) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "CLD",
+          "description": "Cloud probability"
+        }
+      ]
+    },
+    "CLD_60m": {
+      "title": "Cloud probability (CLD) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "CLD",
+          "description": "Cloud probability"
+        }
+      ]
+    },
+    "Product": {
+      "title": "Zipped product",
+      "type": "application/zip",
+      "roles": [
+        "data",
+        "metadata",
+        "archive"
+      ]
+    },
+    "SCL_20m": {
+      "title": "Scene classification map (SCL) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "sampling:original",
+        "gsd:20m"
+      ],
+      "gsd": 20
+    },
+    "SCL_60m": {
+      "title": "Scene classification map (SCL) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60
+    },
+    "SNW_20m": {
+      "title": "Snow probability (SNW) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "SNW",
+          "description": "Snow probability"
+        }
+      ]
+    },
+    "SNW_60m": {
+      "title": "Snow probability (SNW) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "SNW",
+          "description": "Snow probability"
+        }
+      ]
+    },
+    "TCI_10m": {
+      "title": "True color image",
+      "type": "image/jp2",
+      "roles": [
+        "visual",
+        "sampling:original",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        },
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        },
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "TCI_20m": {
+      "title": "True color image",
+      "type": "image/jp2",
+      "roles": [
+        "visual",
+        "sampling:downsampled",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        },
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        },
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "TCI_60m": {
+      "title": "True color image",
+      "type": "image/jp2",
+      "roles": [
+        "visual",
+        "sampling:downsampled",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "B04",
+          "description": "Red (band 4)",
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.665
+        },
+        {
+          "name": "B03",
+          "description": "Green (band 3)",
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56
+        },
+        {
+          "name": "B02",
+          "description": "Blue (band 2)",
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.493
+        }
+      ]
+    },
+    "WVP_10m": {
+      "title": "Water vapour (WVP) - 10m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:10m"
+      ],
+      "gsd": 10,
+      "bands": [
+        {
+          "name": "WVP",
+          "description": "Water vapour"
+        }
+      ]
+    },
+    "WVP_20m": {
+      "title": "Water vapour (WVP) - 20m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:20m"
+      ],
+      "gsd": 20,
+      "bands": [
+        {
+          "name": "WVP",
+          "description": "Water vapour"
+        }
+      ]
+    },
+    "WVP_60m": {
+      "title": "Water vapour (WVP) - 60m",
+      "type": "image/jp2",
+      "roles": [
+        "data",
+        "gsd:60m"
+      ],
+      "gsd": 60,
+      "bands": [
+        {
+          "name": "WVP",
+          "description": "Water vapour"
+        }
+      ]
+    },
+    "thumbnail": {
+      "title": "Quicklook",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail",
+        "overview"
+      ]
+    },
+    "safe_manifest": {
+      "title": "manifest.safe",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "granule_metadata": {
+      "title": "MTD_TL.xml",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "inspire_metadata": {
+      "title": "INSPIRE.xml",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "product_metadata": {
+      "title": "MTD_MSIL2A.xml",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "datastrip_metadata": {
+      "title": "MTD_DS.xml",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ]
+    }
+  }
+}
