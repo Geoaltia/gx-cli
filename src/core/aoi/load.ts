@@ -38,7 +38,7 @@ export interface LoadAoiInput {
   text?: string;
 }
 
-/** Extensions geoaltia understands, for help texts and prompts. */
+/** Extensions gx understands, for help texts and prompts. */
 export const AOI_EXTENSIONS = [".geojson", ".json", ".kml", ".kmz", ".shp", ".zip", ".wkt"] as const;
 
 interface RawAoi {
@@ -224,7 +224,7 @@ export async function loadAoi(input: LoadAoiInput): Promise<Aoi> {
   if (features.length === 0) {
     throw new Error(
       ignored > 0
-        ? `La entrada solo contiene puntos o líneas (${ignored}); geoaltia necesita polígonos. Usa --bbox si solo tienes un punto de referencia.`
+        ? `La entrada solo contiene puntos o líneas (${ignored}); se necesitan polígonos. Usa --bbox si solo tienes un punto de referencia.`
         : "La entrada no contiene ninguna geometría.",
     );
   }

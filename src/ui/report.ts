@@ -331,7 +331,7 @@ export function renderTotals(report: DiscoveryReport): string {
   return `${icon} ${theme.bold(text)}${errors} ${theme.dim(`· ${formatDuration(report.totals.durationMs)}`)}`;
 }
 
-/** Offline catalogue listing for `geoaltia collections`. */
+/** Offline catalogue listing for `gx collections`. */
 export function renderCollectionsCatalog(): string {
   const columns: Column[] = [
     { header: "ALIAS", align: "left" },

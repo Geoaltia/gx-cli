@@ -1,13 +1,12 @@
 {
-  "name": "@geoaltia/cli",
+  "name": "@geoaltia/gx-cli",
   "version": "0.1.0",
-  "description": "CLI de Geoaltia: pásale un polígono o área de interés y descubre qué datos Sentinel-1/Sentinel-2 existen sobre esa zona en Copernicus STAC.",
+  "description": "gx: pásale un polígono o área de interés y descubre qué datos Sentinel-1/Sentinel-2 existen sobre esa zona en el catálogo STAC de Copernicus.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "geoaltia": "./dist/cli.mjs",
     "gx": "./dist/cli.mjs"
   },
   "exports": {
@@ -46,7 +45,7 @@
   },
   "keywords": [
     "cli",
-    "geoaltia",
+    "gx",
     "gis",
     "geomatics",
     "geospatial",
@@ -64,12 +63,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geoaltia/geo-cli.git"
+    "url": "git+https://github.com/Geoaltia/gx-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/geoaltia/geo-cli/issues"
+    "url": "https://github.com/Geoaltia/gx-cli/issues"
   },
-  "homepage": "https://github.com/geoaltia/geo-cli#readme",
+  "homepage": "https://github.com/Geoaltia/gx-cli#readme",
   "packageManager": "pnpm@10.33.2",
   "dependencies": {
     "@clack/prompts": "1.7.0",

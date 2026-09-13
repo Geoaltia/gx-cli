@@ -16,7 +16,7 @@ import { MADRID_SQUARE_UTM, PRJ_ETRS89_UTM30N, writePolygonShp } from "./helpers
 let dir: string;
 
 beforeAll(async () => {
-  dir = await mkdtemp(path.join(tmpdir(), "geoaltia-test-"));
+  dir = await mkdtemp(path.join(tmpdir(), "gx-test-"));
 });
 
 const SQUARE_WKT = "POLYGON((-3.72 40.40, -3.68 40.40, -3.68 40.43, -3.72 40.43, -3.72 40.40))";

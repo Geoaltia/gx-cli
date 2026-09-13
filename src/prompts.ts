@@ -55,7 +55,7 @@ export interface ProvidedOptions {
 
 /**
  * Guided setup. Only asks about what the user did not already pass as a flag,
- * so `geoaltia zona.geojson -c s1-grd` just asks for the period.
+ * so `gx zona.geojson -c s1-grd` just asks for the period.
  */
 export async function runPrompts(
   provided: ProvidedOptions,

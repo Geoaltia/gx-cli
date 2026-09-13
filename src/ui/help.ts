@@ -7,7 +7,7 @@ import { VERSION } from "@/version";
 type Entry = [string, string, string?];
 
 const COMMANDS: Entry[] = [
-  ["scan [aoi]", "Describe el AOI y lista los datos Sentinel disponibles.", "comando por defecto: geoaltia <aoi> equivale a geoaltia scan <aoi>"],
+  ["scan [aoi]", "Describe el AOI y lista los datos Sentinel disponibles.", "comando por defecto: gx <aoi> equivale a gx scan <aoi>"],
   ["aoi [aoi]", "Solo métricas del AOI (superficie, CRS, bbox…). No usa la red."],
   ["collections", "Colecciones soportadas, con alias, resolución y bandas."],
 ];
@@ -41,8 +41,8 @@ const OUTPUT_OPTIONS: Entry[] = [
 ];
 
 const EXAMPLES: Array<[string, string]> = [
-  ["geoaltia", "Modo guiado: pide AOI, colecciones, periodo y nubosidad."],
-  ["geoaltia parcela.geojson", "Datos S2 L2A y S1 GRD de los últimos 90 días."],
+  ["gx", "Modo guiado: pide AOI, colecciones, periodo y nubosidad."],
+  ["gx parcela.geojson", "Datos S2 L2A y S1 GRD de los últimos 90 días."],
   ["gx finca.kmz --days 30 --max-cloud 20", "Último mes, escenas ópticas con ≤ 20 % de nubes."],
   ["gx -b -3.8,40.35,-3.6,40.5 -c s1-grd -s", "Solo radar sobre un bbox, con listado de escenas."],
   ["gx lotes.zip --from 2026-01-01 --to 2026-06-30", "Shapefile comprimido; CRS leído del .prj."],
@@ -73,11 +73,10 @@ function renderEntries(entries: Entry[]): string[] {
 
 /** The full, colourized `--help` screen. */
 export function renderHelp(): string {
-  const header = `${theme.accent(icons.globe)} ${theme.brandBold("geoaltia")} ${theme.muted("·")} ${theme.muted(TAGLINE)} ${theme.dim(`v${VERSION}`)}`;
+  const header = `${theme.accent(icons.globe)} ${theme.brandBold("gx")} ${theme.muted("·")} ${theme.muted(TAGLINE)} ${theme.dim(`v${VERSION}`)}`;
 
   const usage = [
-    `  ${theme.code("geoaltia")} ${theme.muted("[comando] [aoi] [opciones]")}`,
-    `  ${theme.code("gx")} ${theme.muted("[comando] [aoi] [opciones]")}  ${theme.dim("(alias corto)")}`,
+    `  ${theme.code("gx")} ${theme.muted("[comando] [aoi] [opciones]")}`,
   ];
 
   const description = [
@@ -95,6 +94,7 @@ export function renderHelp(): string {
     `  ${theme.dim(icons.bullet)} Todo se calcula en EPSG:4326; superficie y perímetro son geodésicos (esfera, error < 0,5 %).`,
     `  ${theme.dim(icons.bullet)} La cobertura indica qué % del AOI cae dentro de la huella de cada escena.`,
     `  ${theme.dim(icons.bullet)} La búsqueda en Copernicus es pública: no hace falta cuenta ni token.`,
+    `  ${theme.dim(icons.bullet)} Datos: Copernicus Sentinel (ESA / Unión Europea), vía Copernicus Data Space Ecosystem.`,
     `  ${theme.dim(icons.bullet)} Con ${theme.code("-f json")} o ${theme.code("-f geojson")} sin ${theme.code("-o")}, stdout solo contiene el documento.`,
   ];
 

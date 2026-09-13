@@ -12,7 +12,7 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   define: {
-    __GEOALTIA_VERSION__: JSON.stringify(pkg.version),
+    __GX_VERSION__: JSON.stringify(pkg.version),
   },
   alias: {
     "@": fileURLToPath(new URL("src", import.meta.url)),

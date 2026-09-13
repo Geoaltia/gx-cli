@@ -9,7 +9,7 @@ export const TAGLINE = "descubrimiento de datos satelitales por área de interé
  * still looks right in a narrow terminal.
  */
 export function renderBanner(): string {
-  const title = `${theme.accent(icons.globe)} ${theme.brandBold("geoaltia")}`;
+  const title = `${theme.accent(icons.globe)} ${theme.brandBold("gx")}`;
   const tagline = theme.muted(TAGLINE);
   const version = theme.dim(`v${VERSION}`);
 

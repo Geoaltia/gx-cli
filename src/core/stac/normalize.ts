@@ -67,7 +67,7 @@ export function aoiCoverage(target: CoverageTarget, footprint: AreaGeometry): nu
   }
 }
 
-/** Reduces a STAC item to the metadata geoaltia reports. */
+/** Reduces a STAC item to the metadata gx reports. */
 export function normalizeItem(item: StacItem, target?: CoverageTarget): SceneSummary {
   const p = item.properties;
   const privateProps = (p["_private"] ?? {}) as Record<string, unknown>;

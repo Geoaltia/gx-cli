@@ -131,7 +131,7 @@ export async function stacRequest<T>(
         method: init.method,
         headers: {
           Accept: "application/geo+json, application/json",
-          "User-Agent": `geoaltia-cli/${VERSION}`,
+          "User-Agent": `gx-cli/${VERSION}`,
           ...(init.body !== undefined ? { "Content-Type": "application/json" } : {}),
         },
         ...(init.body !== undefined ? { body: JSON.stringify(init.body) } : {}),

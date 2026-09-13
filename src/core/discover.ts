@@ -162,7 +162,7 @@ export async function discoverArea(
   };
 
   return {
-    generator: { name: "@geoaltia/cli", version: VERSION },
+    generator: { name: "gx", version: VERSION },
     generatedAt: new Date().toISOString(),
     provider: { id: provider.id, name: provider.name, url: provider.url },
     aoi: {

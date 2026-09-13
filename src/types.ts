@@ -11,7 +11,7 @@ export type BBox = [number, number, number, number];
 /** Polygonal geometries: the only ones that describe an area of interest. */
 export type AreaGeometry = Polygon | MultiPolygon;
 
-/** Every way an AOI can be handed to geoaltia. */
+/** Every way an AOI can be handed to gx. */
 export type AoiSourceKind =
   | "geojson"
   | "wkt"

@@ -1,4 +1,4 @@
-/** A STAC API geoaltia knows how to query. */
+/** A STAC API gx knows how to query. */
 export interface StacProvider {
   id: string;
   name: string;

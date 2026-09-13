@@ -1,17 +1,17 @@
 <div align="center">
 
-# ◍ geoaltia
+# ◍ gx
 
 **Pásale un polígono y descubre qué datos satelitales existen sobre esa zona.**
 
-`geoaltia` lee tu área de interés (GeoJSON, KML/KMZ, Shapefile, WKT o bbox),
+`gx` lee tu área de interés (GeoJSON, KML/KMZ, Shapefile, WKT o bbox),
 calcula su superficie y CRS y consulta el catálogo STAC de
 [Copernicus Data Space](https://dataspace.copernicus.eu) para decirte cuántas
 escenas Sentinel-1 y Sentinel-2 hay, de qué fechas, con cuánta nubosidad, qué
 parte del AOI cubren y qué bandas ofrecen. Todo en segundos, desde la terminal.
 
-[![npm](https://img.shields.io/npm/v/%40geoaltia%2Fcli?color=cyan)](https://www.npmjs.com/package/@geoaltia/cli)
-[![license](https://img.shields.io/npm/l/%40geoaltia%2Fcli?color=green)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/%40geoaltia%2Fgx-cli?color=cyan)](https://www.npmjs.com/package/@geoaltia/gx-cli)
+[![license](https://img.shields.io/npm/l/%40geoaltia%2Fgx-cli?color=green)](./LICENSE)
 
 </div>
 
@@ -33,6 +33,7 @@ parte del AOI cubren y qué bandas ofrecen. Todo en segundos, desde la terminal.
 - [API programática](#api-programática)
 - [Requisitos](#requisitos)
 - [Desarrollo](#desarrollo)
+- [Créditos y fuentes de datos](#créditos-y-fuentes-de-datos)
 - [Publicación](#publicación)
 - [Licencia](#licencia)
 
@@ -58,8 +59,9 @@ parte del AOI cubren y qué bandas ofrecen. Todo en segundos, desde la terminal.
 
 - No descarga imágenes.
 - No calcula índices, clasificaciones, series temporales ni ningún análisis
-  científico. Eso es el servicio de Geoaltia; esta herramienta sirve para saber,
-  antes de empezar, qué datos hay disponibles.
+  científico. Sirve para saber, antes de empezar, qué datos hay disponibles.
+- No genera datos propios: todo lo que muestra sobre escenas procede del
+  catálogo de Copernicus (ver [Créditos y fuentes de datos](#créditos-y-fuentes-de-datos)).
 
 ---
 
@@ -68,18 +70,18 @@ parte del AOI cubren y qué bandas ofrecen. Todo en segundos, desde la terminal.
 Sin instalar nada:
 
 ```bash
-npx @geoaltia/cli parcela.geojson
+npx @geoaltia/gx-cli parcela.geojson
 ```
 
 Global:
 
 ```bash
-npm install -g @geoaltia/cli
+npm install -g @geoaltia/gx-cli
 # o
-pnpm add -g @geoaltia/cli
+pnpm add -g @geoaltia/gx-cli
 ```
 
-Instala dos comandos equivalentes: `geoaltia` y el alias corto `gx`.
+Instala el comando `gx`.
 
 ---
 
@@ -87,7 +89,7 @@ Instala dos comandos equivalentes: `geoaltia` y el alias corto `gx`.
 
 ```bash
 # Sentinel-2 L2A y Sentinel-1 GRD de los últimos 90 días
-geoaltia parcela.geojson
+gx parcela.geojson
 
 # Último mes, escenas ópticas con ≤ 20 % de nubes, con listado de escenas
 gx finca.kmz --days 30 --max-cloud 20 -s
@@ -103,15 +105,15 @@ gx lotes.zip -o output/lotes.geojson
 
 ## Modo guiado
 
-En una terminal interactiva y sin `-y`, `geoaltia` pregunta lo que no le hayas
+En una terminal interactiva y sin `-y`, `gx` pregunta lo que no le hayas
 pasado por flags: archivo del AOI, colecciones, periodo (30/90/180/365 días o
 fechas concretas) y nubosidad máxima. Muestra el resumen del AOI y de la
 búsqueda y pide confirmación antes de consultar el catálogo.
 
 ```bash
-geoaltia                      # pregunta todo
-geoaltia zona.geojson -c s1-grd  # solo pregunta el periodo
-geoaltia zona.geojson -y      # sin preguntas: flags + valores por defecto
+gx                          # pregunta todo
+gx zona.geojson -c s1-grd   # solo pregunta el periodo
+gx zona.geojson -y          # sin preguntas: flags + valores por defecto
 ```
 
 Con `-f json` / `-f geojson` sin `-o`, o cuando stdin/stdout no son una
@@ -129,7 +131,7 @@ terminal, nunca se pregunta nada.
 | Shapefile | `lotes.shp` (+ `.dbf`, `.prj`, `.cpg` al lado) o `lotes.zip` | Leído del `.prj` |
 | WKT / EWKT | `--wkt 'POLYGON((...))'`, `SRID=25830;POLYGON(...)` o archivo `.wkt` | EPSG:4326 o el `SRID` |
 | BBox | `--bbox minx,miny,maxx,maxy` | EPSG:4326 o `--crs` |
-| stdin | `cat zona.geojson \| geoaltia -` | Detecta GeoJSON, KML o WKT |
+| stdin | `cat zona.geojson \| gx -` | Detecta GeoJSON, KML o WKT |
 
 - Solo cuentan los **polígonos y multipolígonos**. Puntos y líneas se ignoran y
   se indica cuántos había.
@@ -156,7 +158,7 @@ El CRS de origen se toma, por orden de prioridad, de `--crs`, del `.prj` /
   SIRGAS 2000 / UTM (31965–31985).
 - Cualquier otro CRS como cadena proj4 (`+proj=lcc ...`) o WKT.
 
-Si las coordenadas no parecen grados y no se indicó CRS, `geoaltia` se detiene y
+Si las coordenadas no parecen grados y no se indicó CRS, `gx` se detiene y
 sugiere `--crs` en lugar de buscar en el lugar equivocado del planeta.
 
 El informe también sugiere la **zona UTM** (WGS 84) del centroide, útil como
@@ -167,9 +169,9 @@ CRS métrico de trabajo.
 ## Referencia de comandos
 
 ```text
-geoaltia [scan] [aoi] [opciones]   AOI + búsqueda + informe (comando por defecto)
-geoaltia aoi [aoi] [opciones]      Solo métricas del AOI, sin red
-geoaltia collections [-f json]     Colecciones soportadas
+gx [scan] [aoi] [opciones]   AOI + búsqueda + informe (comando por defecto)
+gx aoi [aoi] [opciones]      Solo métricas del AOI, sin red
+gx collections [-f json]     Colecciones soportadas
 ```
 
 ### Área de interés
@@ -256,7 +258,7 @@ El objeto `DiscoveryReport` completo:
 
 ```jsonc
 {
-  "generator": { "name": "@geoaltia/cli", "version": "0.1.0" },
+  "generator": { "name": "gx", "version": "0.1.0" },
   "generatedAt": "2026-09-13T10:00:00.000Z",
   "provider": { "id": "cdse", "name": "Copernicus Data Space Ecosystem", "url": "…" },
   "aoi": {
@@ -331,7 +333,7 @@ Todo lo que hace la CLI está disponible desde código:
 ```ts
 import { writeFile } from "node:fs/promises";
 
-import { discoverArea, toGeoJson } from "@geoaltia/cli";
+import { discoverArea, toGeoJson } from "@geoaltia/gx-cli";
 
 const report = await discoverArea(
   { file: "parcela.geojson" }, // o { bbox: "…" }, { wkt: "…", crs: "EPSG:25830" }
@@ -385,7 +387,7 @@ Probar la CLI local sin publicar:
 ```bash
 pnpm build
 pnpm link --global
-geoaltia --help
+gx --help
 ```
 
 ### Estructura
@@ -429,6 +431,29 @@ src/
 El workspace de pnpm fija `minimumReleaseAge: 10080` (7 días): una versión de
 una dependencia tiene que llevar una semana publicada antes de poder instalarse.
 Las versiones se guardan exactas (`save-exact`).
+
+---
+
+## Créditos y fuentes de datos
+
+`gx` es una capa de consulta y resumen sobre servicios y librerías de terceros:
+
+- **Datos satelitales**: [Copernicus](https://www.copernicus.eu) Sentinel-1 y
+  Sentinel-2, programa de la Unión Europea operado con la Agencia Espacial
+  Europea (ESA). Los metadatos se obtienen del catálogo STAC público de
+  [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu). Si usas
+  los productos, cita la fuente según los
+  [términos de Copernicus](https://dataspace.copernicus.eu/terms-and-conditions)
+  (p. ej. *"Contains modified Copernicus Sentinel data [año]"*).
+- **Geometría y CRS**: [Turf.js](https://turfjs.org) (área, perímetro,
+  intersecciones, validación), [PROJ4JS](https://github.com/proj4js/proj4js)
+  (reproyección), [shpjs](https://github.com/calvinmetcalf/shapefile-js)
+  (Shapefile), [@tmcw/togeojson](https://github.com/placemark/togeojson) y
+  [@xmldom/xmldom](https://github.com/xmldom/xmldom) (KML),
+  [fflate](https://github.com/101arrowz/fflate) (KMZ/ZIP).
+- **Terminal**: [commander](https://github.com/tj/commander.js),
+  [@clack/prompts](https://github.com/bombshell-dev/clack) y
+  [picocolors](https://github.com/alexeyraspopov/picocolors).
 
 ---
 

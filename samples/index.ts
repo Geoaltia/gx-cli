@@ -1,6 +1,6 @@
 import path from "node:path";
 
-import { discoverArea, toGeoJson } from "@geoaltia/cli";
+import { discoverArea, toGeoJson } from "@geoaltia/gx-cli";
 
 /**
  * Playground for the programmatic API. Edit `aoi.geojson` (or point `file` to

@@ -84,7 +84,7 @@ importers:
 
   samples:
     dependencies:
-      '@geoaltia/cli':
+      '@geoaltia/gx-cli':
         specifier: workspace:*
         version: link:..
     devDependencies:

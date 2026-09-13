@@ -402,7 +402,7 @@ function buildProgram(): Command {
   const program = new Command();
 
   program
-    .name("geoaltia")
+    .name("gx")
     .description("Descubre qué datos satelitales existen sobre un área de interés.")
     .helpOption("-h, --help", "Muestra la ayuda")
     .option("-v, --version", "Muestra la versión")
@@ -423,7 +423,7 @@ function buildProgram(): Command {
 
   program.hook("preSubcommand", (thisCommand) => {
     if (thisCommand.opts<{ version?: boolean }>().version) {
-      printLine(`${theme.brandBold("geoaltia")} ${theme.accent(`v${VERSION}`)}`);
+      printLine(`${theme.brandBold("gx")} ${theme.accent(`v${VERSION}`)}`);
       process.exit(0);
     }
   });

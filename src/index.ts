@@ -1,11 +1,11 @@
 /**
- * `@geoaltia/cli` — programmatic API.
+ * `@geoaltia/gx-cli` — programmatic API.
  *
- * The CLI (`geoaltia` / `gx`) is a thin layer on top of these functions, so
+ * The CLI (`gx`) is a thin layer on top of these functions, so
  * anything the command line can do is available from code as well.
  *
  * ```ts
- * import { discoverArea, toGeoJson } from "@geoaltia/cli";
+ * import { discoverArea, toGeoJson } from "@geoaltia/gx-cli";
  *
  * const report = await discoverArea(
  *   { file: "parcela.geojson" },

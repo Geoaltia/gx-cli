@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   release:
-    if: ${{ github.repository_owner == 'geoaltia' }}
+    if: ${{ github.repository_owner == 'Geoaltia' }}
     name: Release Package
     runs-on: ubuntu-latest
     steps:
